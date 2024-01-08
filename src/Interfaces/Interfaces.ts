@@ -23,3 +23,8 @@ export interface IerrorResponse {
         message?:string
     };
 }
+export interface Idata {
+        id:number,
+        title:string
+   
+}

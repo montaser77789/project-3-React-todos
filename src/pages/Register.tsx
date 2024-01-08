@@ -10,13 +10,14 @@ import { errormsg, successmsg } from "../toastifiy";
 import { useState } from "react";
 import { AxiosError } from "axios";
 import { IerrorResponse } from "../Interfaces/Interfaces";
-
+import { useNavigate } from "react-router-dom";
 
 
 ////   ///////  HANDELERS   ///////
 
 const RegisterPage = () => {
   const [isloading,setisloading]=useState(false)
+  const navigate =useNavigate()
  
   const {
     register,
@@ -32,7 +33,10 @@ const RegisterPage = () => {
     try {
      const {status} =  await axioInstance.post("/auth/local/register",data);
      if(status ==200) {
-      successmsg({ msg: 'You will navigate to the login page after 4 second to login' });
+      successmsg({ msg: 'You will navigate to the login page after 2 second to login' });
+      setTimeout(() => {
+        navigate("/login")
+      }, 2000);
      }
     } catch (error) {
       const objerror = error as AxiosError<IerrorResponse>

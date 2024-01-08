@@ -7,7 +7,7 @@ interface Ipropse{
 export  function successmsg ({msg}:Ipropse){
 toast.success(msg, {
     position: 'top-right',
-    autoClose: 5000,
+    autoClose: 1000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -19,7 +19,7 @@ toast.success(msg, {
   export function errormsg ({msg}:Ipropse){
     toast.error(msg, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

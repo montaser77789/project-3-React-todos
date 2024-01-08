@@ -28,10 +28,17 @@ const LoginPage = () => {
    
     console.log(data)
     try {
-     const {status} =  await axioInstance.post("/auth/local",data);
+     const {status ,data:resData} =  await axioInstance.post("/auth/local",data);
      if(status ==200) {
-      successmsg({ msg: 'You will navigate to the home page after 4 second to login' });
-     }
+      successmsg({ msg: 'You will navigate to the home page after 2 second to login' });
+      
+      setTimeout(()=>{
+        location.replace("/")
+      },2000)
+      localStorage.setItem("loggedInUser",JSON.stringify(resData))
+      console.log(resData);
+    
+    }
     } catch (error) {
       const objerror = error as AxiosError<IerrorResponse>
       objerror.response?.data?.error.message
