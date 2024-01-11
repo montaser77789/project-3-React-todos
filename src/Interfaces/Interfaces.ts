@@ -25,6 +25,7 @@ export interface IerrorResponse {
 }
 export interface Idata {
         id:number,
-        title:string
+        title:string,
+        description:string
    
 }
