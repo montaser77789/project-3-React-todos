@@ -29,3 +29,8 @@ export interface Idata {
         description:string
    
 }
+export interface ItodoCreate {
+    title:string,
+    description:string
+
+}
