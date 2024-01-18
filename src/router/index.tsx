@@ -7,6 +7,7 @@ import HomePage from "../pages";
 import LoginPage from "../pages/Login";
 import RegisterPage from "../pages/Register";
 import Profile from "../pages/Profile";
+import Todospag from "../pages/Todopagenation";
 
 const storageKey ="loggedInUser"
 const userDataString = localStorage.getItem(storageKey);
@@ -48,6 +49,15 @@ const router = createBrowserRouter(
             </ProtectedRoute>
           }
         />
+                   <Route
+          path="todospag"
+          element={
+            <ProtectedRoute isAllowed={userData?.jwt} redirectPath="/login" data={userData}>
+              <Todospag/>
+            </ProtectedRoute>
+          }
+        />
+
       </Route>
 
       {/* Page Not Found */}

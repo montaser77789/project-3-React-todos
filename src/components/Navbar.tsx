@@ -25,6 +25,9 @@ console.log(userData);
         </li>
 {    userData?.jwt ? <div className="flex  justify-center ali  items-center space-x-3">
 <li className="text-white duration-200 font-semibold text-lg">
+          <NavLink to="/todospag">Todos</NavLink>
+        </li>
+  <li className="text-white duration-200 font-semibold text-lg">
           <NavLink to="/profile">My profile</NavLink>
         </li>
   <li className="text-white duration-200 font-semibold text-lg">
