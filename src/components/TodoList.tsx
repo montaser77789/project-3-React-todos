@@ -12,6 +12,7 @@ import { TodoSkeleton } from "./ui/todoSkeleton";
 import { faker } from "@faker-js/faker";
 
 const TodoList = () => {
+  
   // const [todos ,settodos] =useState([]);
   // const [loggedin , setloggedin] =useState(true)
   const storageKey = "loggedInUser";
@@ -256,8 +257,8 @@ const TodoList = () => {
     });
   };
 
-  const onGenereateTodo = async () => {
-    for (let i = 0; i < 100; i++) {
+  const onGenereateTodos = async () => {
+    for (let i = 0; i < 20; i++) {
       try {
         const { data } = await axioInstance.post(
           `/todos`,
@@ -303,8 +304,8 @@ const TodoList = () => {
           <Button onClick={onOpenCreateModel} size={"sm"}>
             Post new todo
           </Button>
-          <Button variant={"outline"} size={"sm"} onClick={onGenereateTodo}>
-            Generate todos
+          <Button variant={"outline"} size={"sm"} onClick={onGenereateTodos}>
+            Generate 20 todos
           </Button>
         </div>
       )}

@@ -1,9 +1,30 @@
-const Paginator = () => {
+interface Ipropse{
+  page:number,
+  pageCount:number,
+  total:number,
+  fetching:boolean,
+  onClickPrev:()=>void,
+  onClickNext:()=>void,
+}
+
+const Paginator = ({page,pageCount,onClickPrev,onClickNext,total,fetching}:Ipropse) => {
     return (
-      <div className="flex justify-center mx-auto">
+      <div className="flex-col space-y-3">
+        <p className="text-sm text-gray-600 flex justify-center "> 
+          page <span className="mx-1 font-semibold text-gray-600 text-md">{page}</span>to
+          <span  className="mx-1 font-semibold text-gray-600 text-md">{pageCount}</span>of
+          <span  className="mx-1 font-semibold text-gray-600 text-md">{total}</span>
+
+        </p>
+        <div className="bg-white flex justify-center">
+
+       
         <button
           type="button"
-          className="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-indigo-700 duration-300 hover:text-white px-3"
+          className="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-indigo-700 duration-300 hover:text-white px-3
+          disabled:bg-gray-400  disabled:hover:bg-gray-400"
+          disabled={page==1 ||fetching}
+          onClick={onClickPrev}
         >
           <div className="flex flex-row align-middle">
             <svg className="w-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +39,10 @@ const Paginator = () => {
         </button>
         <button
           type="button"
-          className="bg-gray-800 text-white rounded-r-md py-2 border-l border-gray-200 hover:bg-indigo-700 duration-300 hover:text-white px-3"
+          className="bg-gray-800 text-white rounded-r-md py-2 border-l border-gray-200 hover:bg-indigo-700 duration-300 hover:text-white px-3
+          disabled:bg-gray-400  disabled:hover:bg-gray-400"
+          disabled={page==pageCount ||fetching}
+          onClick={onClickNext}
         >
           <div className="flex flex-row align-middle">
             <span className="mr-2">Next</span>
@@ -31,6 +55,7 @@ const Paginator = () => {
             </svg>
           </div>
         </button>
+        </div>
       </div>
     );
   };
